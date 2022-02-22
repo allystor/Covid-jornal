@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icone.svg">
+    <title>Portal Covid</title>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/a5ad30f95d.js" crossorigin="anonymous"></script>
+    <!--Css-->
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <!--Cabeçalho-->
+    <header>
+        <div id="navbar" class="navbar navbar-dark bg-rgb(14, 125, 221) shadow-sm">
+          <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+               <img src="./img/virus.svg" width="50" height="50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></img>
+               <strong><h1>Portal Covid</h1></strong>
+            </a>
+            <nav class="nav">
+                <a class="nav-link active text-white fs-5" href="#Principais">Principais</a>
+                <a class="nav-link text-white fs-5" href="#Recentes">Recentes</a>
+                <a class="nav-link text-white fs-5" href="#Reportagens">Reportagens</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+          <!--Carousel-->
+        <div id="carouselExampleControls" class="carousel slide w-50 m-auto my-5" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                
+              </div>
+              <div class="carousel-item">
+                
+              </div>
+              <div class="carousel-item">
+                
+            </div>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="carousel-img d-block w-100" src="./img/covid-news-7.png" alt="Third slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <a href="./Notícias/news-7.html" class="carousel-ancor">
+                      <h5>Zé Gotinha responde às dúvidas da população sobre a vacinação de crianças contra a Covid-19</h5>
+                    </a>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img class="carousel-img d-block w-100" src="./img/covid-news-8.jpg" alt="Second slide">
+                  <div class="carousel-caption d-none d-md-block td-none">
+                    <a href="./Notícias/news-8.html" class="carousel-ancor">
+                      <h5>Queiroga pede para que pais levem seus filhos para vacinar contra covid-19</h5>
+                    </a>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img class="carousel-img d-block w-100" src="./img/covid-news-9.webp" alt="First slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <a href="./Notícias/news-9.html" class="carousel-ancor">
+                        <h5>Estado do Rio volta à bandeira amarela de risco para covid-19 Rio volta à bandeira amarela de risco para covid-19</h5>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+        <!--Cards-->
+        <div id="Principais" class="d-grid text-center mx-auto my-5">
+            <h2 class="titulo my-5 ms-5">Principais</h2>
+            <div class="d-flex m-auto">
+                <div class="card me-5" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/covid-news-1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Covid-19: Brasil tem a maior média móvel de mortes em seis meses</h5>
+                        <a href="./Noticias/1" class="btn btn-primary">Veja</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/covid-news-2jpg.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Como estão as vacinas da Covid-19 específicas para a variante Ômicron</h5>
+                        <a href="./Notícias/news-2.html" class="btn btn-primary">Veja</a>
+                    </div>
+                </div>
+                <div class="card ms-5" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/covid-news-3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Araraquara tem 2 mortes por Covid-19 e soma 655 óbitos; mais 365 casos são registrados</h5>
+                        <a href="./Notícias/news-3.html" class="btn btn-primary">Veja</a>
+                    </div>
+                </div>
+            </div>
+            </div>        
+        </div>
+        <div id="Recentes" class="d-grid text-center mx-auto">
+            <h2 class="titulo my-5">Recentes</h2>
+            <div class="d-flex m-auto">
+                <div class="card me-5" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/covid-news-4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Covid-19: Maioria dos estados não apresentam crescimento na média de casos</h5>
+                        <a href="./Notícias/news-4.html" class="btn btn-primary">Veja</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/covid-news-5.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Covid-19: De onde poderá vir a próxima variante? Estudo aponta países prováveis</h5>
+                        <a href="./Notícias/news-5.html" class="btn btn-primary">Veja</a>
+                    </div>
+                </div>
+                <div class="card ms-5" style="width: 18rem;">
+                    <img class="card-img-top" src="./img/covid-news-6.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Ministério da Saúde decide não recomendar 4ª dose de vacina contra a Covid-19</h5>
+                        <a href="./Notícias/news-6.html" class="btn btn-primary">Veja</a>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <div id="Reportagens" class="d-grid text-center mx-auto">
+            <h2 class="my-5">Reportagens</h2>
+            <div class="d-flex m-auto">
+                <div class="embed-responsive embed-responsive-21by9 me-5">
+                    <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/-VVW81VCAPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="embed-responsive embed-responsive-21by9 1">
+                    <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/NX0C9I51_Q4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="embed-responsive embed-responsive-21by9 ms-5">
+                    <iframe class="border rounded .hover-zoom" width="360" height="180" src="https://www.youtube.com/embed/-ULBdTGDzAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>  
+            </div>
+        </div>
+    </main>
+    <!--Rodapé-->
+    <footer id="myFooter" class="footer my-5">
+        <div class="footer-social">
+            <a href="" class="social-icons"><i class="fa fa-facebook"></i></a>
+            <a href="" class="social-icons"><i class="fa fa-instagram"></i></a>
+            <a href="" class="social-icons"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="m-auto text-center">
+            <div class="">
+                <i class="fas fa-phone"></i>
+                <p>Ligue para: (99)99999-9999</p>
+            </div>
+            <p>Horários: das 8:00 às 19:00</p>
+            <div class="">
+                <i class="fas fa-envelope"></i>
+                <p>Envie um email para: contato@jornalcovid.com.br</p>
+            </div>
+            <p class="footer-copyright">© 2022 Copyright - Jornal Covid</p>
+        </div>
+    </footer>
+    <!--scripts do projeto-->
+    <script src="javascript/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
