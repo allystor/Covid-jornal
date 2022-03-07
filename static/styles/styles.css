@@ -85,3 +85,7 @@ header {
 #myFooter .fa-twitter:focus{
     color:#00aced;
 }
+/*scrollbar*/
+*::-webkit-scrollbar{
+    width: 15px;
+}
