@@ -13,31 +13,30 @@
     <!--Css-->
     <link rel="stylesheet" href="/static/styles/styles-news.css">
 </head>
-    <body>
-        <!--Navbar-->
-        <header>
-            <div id="navbar" class="navbar navbar-dark bg-rgb(14, 125, 221) shadow-sm">
-              <div class="container">
+<body>
+    <!--Navbar-->
+    <header>
+        <div id="navbar" class="navbar navbar-dark bg-rgb(14, 125, 221) shadow-sm">
+            <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                   <img src="/static/img/virus.svg" width="50" height="50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></img>
-                   <strong><h1>Portal Covid</h1></strong>
+                    <img src="/static/img/virus.svg" width="50" height="50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></img>
+                    <strong><h1>Portal Covid</h1></strong>
                 </a>
                 <nav class="nav">
                     <a class="nav-link active text-white fs-5" href="./">Home</a>
                 </nav>
-              </div>
             </div>
-        </header>
-        <!--Corpo principal-->
+        </div>
+    </header>
+    <!--Corpo principal-->
+        {% for Paginas in Paginas %}
         <main>
             <div class="main-container w-50 m-auto my-5">
                 <div class="conteúdo d-flex flex-column">
-                    <h1>Covid-19: Brasil tem a maior média móvel de mortes em seis meses</h1>
+                    <h1>{{Paginas.get.titulo()}}</h1>
                     <div >
-                        <img class=" w-100" src="/static/img/covid-news-1.jpg" alt="" srcset="">
-                        <p class="font-weight-bold fs-4">O Brasil registrou 892 mortes por covid-19 nas últimas 24 horas, segundo o levantamento do consórcio de veículos de imprensa feito junto às secretarias estaduais de Saúde do país, neste sábado (12). Com isso, o total de óbitos pelo novo coronavírus subiu para 638.124.
-                        A média móvel de mortes nos últimos sete dias é de 894 por dia – a maior registrada até hoje.</p>
-
+                        <img class=" w-100" src="{{Paginas.get.img()}}" alt="" srcset="">
+                        <p class="font-weight-bold fs-4">{{Paginas.get.conteudo()}}</p>
                         <p class="font-weight-bold fs-4">De acordo com o balanço deste sábado, o número de novos casos conhecidos de covid-19 de ontem pra hoje foi de 132.935, elevando o total de infectados para 27.424.975.
                         A média móvel de casos do novo coronavírus nos últimos sete dias foi de 136.138 por dia, um recuo de 27% em relação aos casos registrados em 14 dias, apontando tendência de queda nos diagnósticos da doença.
                         Os dados divulgados pelo consórcio de imprensa foram obtidos após uma parceria inédita entre “g1”, “O Globo”, “Extra”, “O Estado de S.Paulo”, “Folha de S.Paulo” e “UOL”, que passaram a trabalhar de forma colaborativa desde o dia 8 de junho de 2020 para reunir as informações necessárias nos 26 Estados e no Distrito Federal.
@@ -49,6 +48,7 @@
                 </div>
             </div>
         </main>
+        {% endfor %}
         <!--Footer-->
         <footer id="myFooter" class="footer my-5">
             <div class="footer-social">
