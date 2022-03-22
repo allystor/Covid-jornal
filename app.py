@@ -5,48 +5,26 @@ from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 
-listas_de_paginas = [
-    Pagina(0,'Covid-19: Brasil tem a maior média móvel de mortes em seis meses','/static/img/covid-news-1.jpg','O Brasil registrou 892 mortes por covid-19 nas últimas 24 horas, segundo o levantamento do consórcio de veículos de imprensa feito junto às secretarias estaduais de Saúde do país, neste sábado (12). Com isso, o total de óbitos pelo novo coronavírus subiu para 638.124.A média móvel de mortes nos últimos sete dias é de 894 por dia – a maior registrada até hoje.')   
+listas_de_paginas_principais = [
+    Pagina(0,'Covid-19: Brasil tem a maior média móvel de mortes em seis meses','/static/img/covid-news-1.jpg','O Brasil registrou 892 mortes por covid-19 nas últimas 24 horas, segundo o levantamento do consórcio de veículos de imprensa feito junto às secretarias estaduais de Saúde do país, neste sábado (12). Com isso, o total de óbitos pelo novo coronavírus subiu para 638.124.A média móvel de mortes nos últimos sete dias é de 894 por dia – a maior registrada até hoje. De acordo com o balanço deste sábado, o número de novos casos conhecidos de covid-19 de ontem pra hoje foi de 132.935, elevando o total de infectados para 27.424.975. A média móvel de casos do novo coronavírus nos últimos sete dias foi de 136.138 por dia, um recuo de 27% em relação aos casos registrados em 14 dias, apontando tendência de queda nos diagnósticos da doença. Os dados divulgados pelo consórcio de imprensa foram obtidos após uma parceria inédita entre “g1”, “O Globo”, “Extra”, “O Estado de S.Paulo”, “Folha de S.Paulo” e “UOL”, que passaram a trabalhar de forma colaborativa desde o dia 8 de junho de 2020 para reunir as informações necessárias nos 26 Estados e no Distrito Federal.'),
+    Pagina(1,'Como estão as vacinas da Covid-19 específicas para a variante Ômicron','/static/img/covid-news-2jpg.jpg','Os vírus são microrganismos com estruturas relativamente simples, compostos basicamente de proteínas e de informações genéticas. Essa característica faz com que eles tenham uma alta capacidade de mutação. É o que acontece com o SARS-CoV-2, que já se desdobrou em centenas de linhagens diferentes. Uma delas é a variante Ômicron, identificada em novembro de 2021, e que se espalhou rapidamente pelo mundo. Desde então, laboratórios e farmacêuticas se mobilizaram para avaliar como desenvolver vacinas capazes de reduzir o alto contágio da variante. Nenhuma das atualizações dos imunizantes ainda está pronta, mas a cada dia parecemos estar mais pertos delas. A média móvel de casos do novo coronavírus nos últimos sete dias foi de 136.138 por dia, um recuo de 27% em relação aos casos registrados em 14 dias, apontando tendência de queda nos diagnósticos da doença.'), 
+    Pagina(2,'Araraquara tem 2 mortes por Covid-19 e soma 655 óbitos; mais 365 casos são registrados','/static/img/covid-news-3.jpg','Araraquara (SP) registrou, neste domingo (13), mais duas mortes por Covid-19 e chega aos 655 óbitos em decorrência da doença desde o início da pandemia. As vítimas mais recentes são:idoso de 91 anos, com comorbidades, internado em hospital da rede particular desde o dia 4 de fevereiro.idoso de 69 anos, com comorbidades, internado em hospital da rede pública desde o dia 30 de janeiro. A cidade também registrou 365 novos casos da doença e soma 59.130 infectados desde o início da pandemia. Segundo o boletim do Comitê de Contingência do Coronavírus, o município tem taxa de ocupação de 56% de leitos de enfermaria e 69% de UTI.')  
+]
+listas_de_paginas_recentes = [
+    Pagina(3,'Covid-19: Brasil tem a maior média móvel de mortes em seis meses','/static/img/covid-news-1.jpg','Dados divulgados pelo Ministério da Saúde neste sábado (12) apontaram que o número de novos casos voltou a diminuir na maioria dos estados do país. Dentre os 26 estados mais o Distrito Federal, 14 apresentaram queda nas suas médias móveis de infecções e oito se mantiveram estáveis. Rio de Janeiro, Minas Gerais, Espírito Santo, Mato Grosso, Rio Grande do Sul, Santa Catarina, Paraná, Amapá, Roraima, Tocantins, Amazonas, Ceará, Rio Grande do Norte e o Distrito Federal registraram índices pelo menos 15% menores em relação há duas semanas. Ao mesmo tempo, o número médio de infecções em São Paulo, Goiás, Mato Grosso do Sul, Rondônia, Acre, Bahia, Maranhão e Pernambuco permaneceram estáveis em relação ao mesmo período. Desse modo, o panorama do Brasil se mantém em queda pelo segundo dia consecutivo após 44 dias com recordes de infecções. Com 140.234 novos casos, o número médio de brasileiros infectados chegou a 136.067, uma diminuição de 27% em relação há 14 dias. A análise da situação pandêmica é feita a partir da variação de 15% fixada por infectologistas como ponto de inflexão. Dessa maneira, se um índice registrar um aumento superior a 15% em relação há duas semanas, ele está em alta; se o índice cair mais de 15% em relação ao mesmo período, ele está em queda. Médias que permanecem entre -15% e 15% são definidas como estáveis.'),
+    Pagina(4,'Como estão as vacinas da Covid-19 específicas para a variante Ômicron','/static/img/covid-news-2jpg.jpg','Os vírus são microrganismos com estruturas relativamente simples, compostos basicamente de proteínas e de informações genéticas. Essa característica faz com que eles tenham uma alta capacidade de mutação. É o que acontece com o SARS-CoV-2, que já se desdobrou em centenas de linhagens diferentes. Uma delas é a variante Ômicron, identificada em novembro de 2021, e que se espalhou rapidamente pelo mundo. Desde então, laboratórios e farmacêuticas se mobilizaram para avaliar como desenvolver vacinas capazes de reduzir o alto contágio da variante. Nenhuma das atualizações dos imunizantes ainda está pronta, mas a cada dia parecemos estar mais pertos delas. A média móvel de casos do novo coronavírus nos últimos sete dias foi de 136.138 por dia, um recuo de 27% em relação aos casos registrados em 14 dias, apontando tendência de queda nos diagnósticos da doença.'), 
+    Pagina(5,'Araraquara tem 2 mortes por Covid-19 e soma 655 óbitos; mais 365 casos são registrados','/static/img/covid-news-3.jpg','Araraquara (SP) registrou, neste domingo (13), mais duas mortes por Covid-19 e chega aos 655 óbitos em decorrência da doença desde o início da pandemia. As vítimas mais recentes são:idoso de 91 anos, com comorbidades, internado em hospital da rede particular desde o dia 4 de fevereiro.idoso de 69 anos, com comorbidades, internado em hospital da rede pública desde o dia 30 de janeiro. A cidade também registrou 365 novos casos da doença e soma 59.130 infectados desde o início da pandemia. Segundo o boletim do Comitê de Contingência do Coronavírus, o município tem taxa de ocupação de 56% de leitos de enfermaria e 69% de UTI.')  
 ]
 @app.route('/')
 def home():
-    return render_template('index.html', paginas = listas_de_paginas)
+    return render_template('index.html', paginas = listas_de_paginas_principais)
 
 @app.route('/news-1/<id>')
 def exibir_pagina(id):
-    return render_template('exibir_pagina.html',pagina=listas_de_paginas[int(id)])
-
-@app.route('/news-2')
-def news2():
-    return render_template('/Noticias/news-2.html')
-
-@app.route('/Notícias/3')
-def news3():
-    return render_template('/Noticias/news-3.html')
-
-@app.route('/Notícias/4')
-def news4():
-    return render_template('/Noticias/news-4.html')
-
-@app.route('/Notícias/5')
-def news5():
-    return render_template('/Noticias/news-5.html')
-
-@app.route('/Notícias/6')
-def news6():
-    return render_template('/Noticias/news-6.html')
-
-@app.route('/Notícias/7')
-def news7():
-    return render_template('/Noticias/news-7.html')
-
-@app.route('/Notícias/8')
-def news8():
-    return render_template('/Noticias/news-8.html')
-
-@app.route('/Notícias/9')
-def news9():
-    return render_template('/Noticias/news-9.html')
+    return render_template('exibir_pagina.html',pagina=listas_de_paginas_principais[int(id)])
+@app.route('/news-1/<id>')
+def exibir_pagina_2(id):
+    return render_template('exibir_pagina.html',pagina2=listas_de_paginas_recentes[int(id)])
 
 if __name__ == '__main__':
     app.run(debug=True)

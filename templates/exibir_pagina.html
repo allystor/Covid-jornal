@@ -24,7 +24,7 @@
                     <strong><h1>Portal Covid</h1></strong>
                 </a>
                 <nav class="nav">
-                    <a class="nav-link active text-white fs-5" href="./">Home</a>
+                    <a class="nav-link active text-white fs-5" href="{{url_for('home')}}">Home</a>
                 </nav>
             </div>
         </div>
@@ -34,16 +34,12 @@
         <div class="main-container w-50 m-auto my-5">
             <div class="conteúdo d-flex flex-column">
                 <h1>{{pagina.get_titulo()}}</h1>
-                <div >
-                        <img class=" w-100" src="{{pagina.get_imagem()}}" alt="" srcset="">
-                        <p class="font-weight-bold fs-4">{{pagina.get_conteudo()}}</p>
-                        <p class="font-weight-bold fs-4">De acordo com o balanço deste sábado, o número de novos casos conhecidos de covid-19 de ontem pra hoje foi de 132.935, elevando o total de infectados para 27.424.975.
-                        A média móvel de casos do novo coronavírus nos últimos sete dias foi de 136.138 por dia, um recuo de 27% em relação aos casos registrados em 14 dias, apontando tendência de queda nos diagnósticos da doença.
-                        Os dados divulgados pelo consórcio de imprensa foram obtidos após uma parceria inédita entre “g1”, “O Globo”, “Extra”, “O Estado de S.Paulo”, “Folha de S.Paulo” e “UOL”, que passaram a trabalhar de forma colaborativa desde o dia 8 de junho de 2020 para reunir as informações necessárias nos 26 Estados e no Distrito Federal.
-                        </p>
-                        <p class="font-weight-bold fs-4 my-5"> Compartilhar
-                            <a href="#"><img src="/static/img/share.svg" height="30" width="30" class="m-left"></a>
-                        </p>
+                <div>
+                    <img class=" w-100" src="{{pagina.get_imagem()}}" alt="" srcset="">
+                    <p class="font-weight-bold fs-4">{{pagina.get_conteudo()}}</p>
+                    <p class="font-weight-bold fs-4 my-5"> Compartilhar
+                        <a href="#"><img src="/static/img/share.svg" height="30" width="30" class="m-left"></a>
+                    </p>
                     </div>
                 </div>
             </div>
