@@ -1,9 +1,9 @@
-class Paginas:
+class Pagina:
 
-    def __init__(self,id,titulo,conteudo,img):
+    def __init__(self,id,titulo,imagem,conteudo):
         self.__id = id
         self.__titulo = titulo
-        self.__img = img
+        self.__imagem = imagem
         self.__conteudo = conteudo
 
     def get_id(self):
@@ -12,9 +12,10 @@ class Paginas:
     def get_titulo(self):
         return self.__titulo
 
+    def get_imagem(self):
+        return self.__imagem
+
     def get_conteudo(self):
         return self.__conteudo
 
-    def get_img(self):
-        return self.__img
 

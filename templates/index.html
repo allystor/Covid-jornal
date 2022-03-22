@@ -97,73 +97,74 @@
         </div>
         <!--Cards-->
         <div id="Principais" class="d-grid text-center mx-auto my-5">
-            <h2 class="titulo my-5 ms-5">Principais</h2>
-            <div class="d-flex m-auto">
-                <div class="card me-5" style="width: 18rem;">
-                    <img class="card-img-top" src="../static/img/covid-news-1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Covid-19: Brasil tem a maior média móvel de mortes em seis meses</h5>
-                        <a href="{{url_for('Listas_de_paginas',id=Paginas.get.id())}}" class="btn btn-primary">Veja</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="../static/img/covid-news-2jpg.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Como estão as vacinas da Covid-19 específicas para a variante Ômicron</h5>
-                        <a href="./Notícias/2" class="btn btn-primary">Veja</a>
-                    </div>
-                </div>
-                <div class="card ms-5" style="width: 18rem;">
-                    <img class="card-img-top" src="/static/img/covid-news-3.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Araraquara tem 2 mortes por Covid-19 e soma 655 óbitos; mais 365 casos são registrados</h5>
-                        <a href="./Notícias/3" class="btn btn-primary">Veja</a>
-                    </div>
+          <h2 class="titulo my-5 ms-5">Principais</h2>
+          <div class="d-flex m-auto">
+            {% for pagina in paginas %}
+            <div class="card me-5" style="width: 18rem;">
+                <img class="card-img-top" src="../static/img/covid-news-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Covid-19: Brasil tem a maior média móvel de mortes em seis meses</h5>
+                  <a href="{{url_for('exibir_pagina',id=pagina.get_id())}}" class="btn btn-primary">Veja</a>
                 </div>
             </div>
-            </div>        
+            {%endfor%}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="../static/img/covid-news-2jpg.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Como estão as vacinas da Covid-19 específicas para a variante Ômicron</h5>
+                    <a href="./Notícias/2" class="btn btn-primary">Veja</a>
+                  </div>
+              </div>
+              <div class="card ms-5" style="width: 18rem;">
+                  <img class="card-img-top" src="/static/img/covid-news-3.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Araraquara tem 2 mortes por Covid-19 e soma 655 óbitos; mais 365 casos são registrados</h5>
+                    <a href="./Notícias/3" class="btn btn-primary">Veja</a>
+                  </div>
+              </div>
+            </div>
+          </div>        
         </div>
         <div id="Recentes" class="d-grid text-center mx-auto">
-            <h2 class="titulo my-5">Recentes</h2>
-            <div class="d-flex m-auto">
-                <div class="card me-5" style="width: 18rem;">
-                    <img class="card-img-top" src="/static/img/covid-news-4.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Covid-19: Maioria dos estados não apresentam crescimento na média de casos</h5>
-                        <a href="./Notícias/4" class="btn btn-primary">Veja</a>
-                    </div>
+          <h2 class="titulo my-5">Recentes</h2>
+          <div class="d-flex m-auto">
+            <div class="card me-5" style="width: 18rem;">
+                <img class="card-img-top" src="/static/img/covid-news-4.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Covid-19: Maioria dos estados não apresentam crescimento na média de casos</h5>
+                  <a href="./Notícias/4" class="btn btn-primary">Veja</a>
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="/static/img/covid-news-5.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Covid-19: De onde poderá vir a próxima variante? Estudo aponta países prováveis</h5>
-                        <a href="./Notícias/5" class="btn btn-primary">Veja</a>
-                    </div>
+              </div>
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/static/img/covid-news-5.jpg" alt="Card image cap">
+              <div class="card-body">
+                  <h5 class="card-title">Covid-19: De onde poderá vir a próxima variante? Estudo aponta países prováveis</h5>
+                  <a href="./Notícias/5" class="btn btn-primary">Veja</a>
+              </div>
+            </div>
+            <div class="card ms-5" style="width: 18rem;">
+                  <img class="card-img-top" src="/static/img/covid-news-6.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Ministério da Saúde decide não recomendar 4ª dose de vacina contra a Covid-19</h5>
+                    <a href="./Notícias/6" class="btn btn-primary">Veja</a>
                 </div>
-                <div class="card ms-5" style="width: 18rem;">
-                    <img class="card-img-top" src="/static/img/covid-news-6.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Ministério da Saúde decide não recomendar 4ª dose de vacina contra a Covid-19</h5>
-                        <a href="./Notícias/6" class="btn btn-primary">Veja</a>
-                    </div>
-                </div>
-            </div>        
-        </div>
-        <div id="Reportagens" class="d-grid text-center mx-auto">
+              </div>
+          </div>        
+          <div id="Reportagens" class="d-grid text-center mx-auto">
             <h2 class="my-5">Reportagens</h2>
             <div class="d-flex m-auto">
-                <div class="embed-responsive embed-responsive-21by9 me-5">
-                    <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/-VVW81VCAPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+              <div class="embed-responsive embed-responsive-21by9 me-5">
+                <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/-VVW81VCAPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
                 <div class="embed-responsive embed-responsive-21by9 1">
-                    <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/NX0C9I51_Q4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/NX0C9I51_Q4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="embed-responsive embed-responsive-21by9 ms-5">
-                    <iframe class="border rounded .hover-zoom" width="360" height="180" src="https://www.youtube.com/embed/-ULBdTGDzAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe class="border rounded .hover-zoom" width="360" height="180" src="https://www.youtube.com/embed/-ULBdTGDzAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>  
+              </div>
             </div>
-        </div>
-    </main>
+          </main>
     <!--Rodapé-->
     <footer id="myFooter" class="footer my-5">
         <div class="footer-social">
