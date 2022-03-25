@@ -99,29 +99,29 @@
         <div id="Principais" class="d-grid text-center mx-auto my-5">
           <h2 class="titulo my-5 ms-5">Principais</h2>
           <div class="d-flex m-auto">
-            {% for pagina in paginas %}
+          {% for principais in paginas %}
             <div class="card me-5" style="width: 18rem;">
-                <img class="card-img-top" src="{{pagina.get_imagem()}}" alt="Card image cap">
+                <img class="card-img-top" src="{{principais.get_imagem()}}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">{{pagina.get_titulo()}}</h5>
-                  <a href="{{url_for('exibir_pagina',id=pagina.get_id())}}" class="btn btn-primary">Veja</a>
+                  <h5 class="card-title">{{principais.get_titulo()}}</h5>
+                  <a href="{{url_for('Principais',id=principais.get_id())}}" class="btn btn-primary">Veja</a>
                 </div>
             </div>
-            {%endfor%}
+          {%endfor%}
           </div>        
         </div>
         <div id="Recentes" class="d-grid text-center mx-auto">
           <h2 class="titulo my-5">Recentes</h2>
           <div class="d-flex m-auto">
-            {%for pagina2 in paginas%}
+          {%for recentes in paginas_2 %}
             <div class="card me-5" style="width: 18rem;">
-              <img class="card-img-top" src="/static/img/covid-news-4.jpg" alt="Card image cap">
+              <img class="card-img-top" src="{{recentes.get_imagem()}}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Covid-19: Maioria dos estados não apresentam crescimento na média de casos</h5>
-                  <a href="{{url_for('exibir_pagina_2',id=pagina2.get_id())}}" class="btn btn-primary">Veja</a>
+                  <h5 class="card-title">{{recentes.get_titulo()}}</h5>
+                  <a href="{{url_for('Recentes',id=recentes.get_id())}}" class="btn btn-primary">Veja</a>
                 </div>
             </div>
-            {%endfor%}
+          {%endfor%}
           </div>
         </div>        
           <div id="Reportagens" class="d-grid text-center mx-auto">
