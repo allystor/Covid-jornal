@@ -8,6 +8,10 @@ header {
     background-color: rgb(14, 125, 221);
     margin-bottom: 5px;
 }
+.Estados {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 /*carousel*/
 .carousel-img {
     height: 350px;
