@@ -1,5 +1,6 @@
 
 from distutils.log import debug
+from Bandeiras import Estado
 from Pagina import Pagina
 from flask import Flask, render_template, redirect
 
@@ -16,14 +17,39 @@ listas_de_paginas_recentes = [
     Pagina(4,'Covid-19: De onde poderá vir a próxima variante? Estudo aponta países prováveis','/static/img/covid-news-5.jpg','O vírus que causa a Covid-19 foi sequenciado pela primeira vez no início de 2020 e desde então já foram identificadas pela Organização Mundial de Saúde cinco "variantes preocupantes". A mais recente, a Ômicron, foi descoberta em novembro e é agora dominante em quase todos os países do mundo – a nova variante pode evitar a imunidade induzida pela vacina e se espalha mais rapidamente do que a Delta. No entanto, uma subvariante, a BA.2, parece ser ainda mais transmissível. Esta é a história que já vivemos, agora vamos à história que nos reserva – é improvável que estas variantes sejam as últimas. É impossível ter a certeza de como o vírus vai evoluir mas pesquisadores da Airfinity, na Inglaterra, empresa de dados de ciências da vida, tentaram mapear o local mais provável de aparecimento da próxima variante. A mutação de um vírus é um processo aleatório e é por isso que novas variantes bem-sucedidas são mais propensas a vir de lugares onde muitas mutações estão ocorrendo. A hipótese da Airfinity é de que vai ocorrer num local onde poucas pessoas estarão vacinadas e onde muitos sofrem com sistemas imunológicos enfraquecidos. As pessoas imunocomprometidas tendem a abrigar o vírus por mais tempo porque os respetivos corpos lutam mais para o combater, dando mais tempo para que as mutações bem-sucedidas possam se acumular e são menos propensos a produzir anticorpos após serem vacinados, o que significa que têm menos proteção contra a reinfecção.'), 
     Pagina(5,'Ministério da Saúde decide não recomendar 4ª dose de vacina contra a Covid-19','/static/img/covid-news-6.jpg','Após reunião da Câmara Técnica de Assessoramento em Imunização da Covid-19 (CTAI), nesta sexta-feira (11), o Ministério da Saúde decidiu que não vai recomendar a quarta dose de vacina no Brasil. As informações foram antecipadas pela CNN ontem. Segundo fontes da câmara técnica, o entendimento é de que não há pesquisas científicas com dados suficientes que embasam um novo reforço de imunização para pessoas que não sejam imunossuprimidas. O comitê também analisou o cenário epidemiológico atual do país antes de chegar a esta conclusão. Ainda de acordo com técnicos que compõem o comitê técnico, neste momento não deve ser aplicada a quarta dose porque as pessoas que tomaram duas doses e o reforço, ou seja, estão com o esquema vacinal completo, continuam muito bem protegidas contra a Covid- 19 e o agravamento da doença. A pasta definiu o posicionamento depois que o estado de São Paulo ampliou a vacinação ao público em geral com idade acima de 60 anos, com previsão para começar a aplicar a quarta dose a partir do dia 4 de abril. Em entrevista à CNN, o coordenador-executivo do Comitê Científico do estado de São Paulo, João Gabbardo, analisou que há evidências e experiências de outros países que mostram um benefício da dose extra de vacina para os idosos.')  
 ]
-listas_de_paginas_carrousel =[
-    Pagina(6,'Zé Gotinha responde às dúvidas da população sobre a vacinação de crianças contra a Covid-19','/static/img/covid-news-7.png','Protagonista das campanhas de vacinação do Brasil, o Zé Gotinha assumiu mais um papel importante: informar a população brasileira sobre a vacinação de crianças de 5 a 11 anos contra a Covid-19. Já são quase 10 milhões de doses de vacinas distribuídas pelo Ministério da Saúde e 2,9 milhões de crianças vacinadas com a primeira dose do imunizante. Algumas dúvidas podem surgir no momento de levar os pequenos aos postos de vacinação. Como deve ser feita a vacinação de crianças? Segundo a recomendação da Anvisa, as crianças devem ser vacinadas em ambiente exclusivo, diferente do que é usado para a vacinação do público acima de 12 anos e também diferente do ambiente que é usado para aplicar outras vacinas, ainda que pediátricas. As crianças precisam ser recebidas em um ambiente acolhedor e seguro. Vale lembrar que as crianças precisam permaneçam no local por 20 minutos após a vacinação para que sejam observados possíveis efeitos adversos. A orientação é que seja evitada a vacinação desse público na modalidade drive-thru. Nas aldeias indígenas, a vacinação dos pequenos é feita nos dias em que os adultos não são vacinados.'),
-    Pagina(7,'Queiroga pede para que pais levem seus filhos para vacinar contra covid-19','/static/img/covid-news-8.jpg','Ao participar de um ato de vacinação infantil contra a covid-19 em Maceió (AL), neste sábado (12/2), o ministro da Saúde, Marcelo Queiroga, pediu aos pais e responsáveis que levem suas crianças de 5 a 11 anos para tomar o imunizante. Com um ritmo de vacinação do público infantil considerado lento por especialistas, apenas 3,4 milhões de crianças receberam a primeira dose do imunizante. “Vamos disponibilizar as vacinas para os pais e eu exorto a cada pai e cada mãe que levem seus filhos para a sala de vacinação”, disse o ministro, que vacinou duas crianças no evento. Ainda que Queiroga tenha defendido a não obrigatoriedade da vacinação de crianças de 5 a 11 anos, o pedido feito aos pais vai na contramão do que defende o presidente da República, Jair Bolsonaro, que afirmou que não irá vacinar a filha Laura de 11 anos. Nesta sexta (11), o Ministério da Saúde anunciou a contratação de mais 2 milhões de doses da vacina pediátrica da Pfizer, que já é aplicada no país nos grupos de faixa etária de 5 a 11 anos. Com a adição das unidades, a pasta já adquiriu 22 milhões de imunizantes da Pfizer destinados ao público pediátrico. Queiroga garantiu que até a próxima terça-feira, 15 de fevereiro, o ministério distribuirá vacinas suficientes para aplicar a primeira dose em todas as crianças de 5 a 11 anos do país.'), 
-    Pagina(8,'Estado do Rio volta à bandeira amarela de risco para covid-19 Rio volta à bandeira amarela de risco para covid-19','/static/img/covid-news-9.webp','O estado do Rio de Janeiro voltou para a bandeira amarela, de baixo risco para covid-19. Segundo o Mapa de Risco da Covid-19, divulgado nesta sexta-feira (11) pela Secretaria de Estado de Saúde (SES), apresentam melhora as regiões Metropolitana I, que saiu da bandeira laranja (risco moderado) para bandeira amarela (baixo risco) e Serrana, que estava em bandeira vermelha (risco alto) e agora aparece em bandeira laranja (risco moderado). As regiões Metropolitana II, Baixada Litorânea e Baía da Ilha Grande permaneceram com bandeira amarela (risco baixo). As regiões Médio Paraíba, Centro Sul e Norte continuam em bandeira laranja (risco moderado). Apenas a região noroeste se mantém em bandeira vermelha (risco alto). No período analisado, as internações pela doença tiveram queda de 71,34%, saindo de 1.267, na Semana Epidemiológica 3, para 363, na Semana 5. Já os óbitos caíram 30,21%, saindo de 321, na Semana 3, para 224, na Semana 5. Os indicadores mostram que, no período de 1º a 8 de fevereiro, a taxa de positividade para SARS-CoV-2 em testes RT-PCR realizados em unidades de saúde de todo o estado foi de 50%. Nesta quinta-feira (10), a taxa de ocupação de leitos para covid-19 estava em 55% em unidades de terapia intensiva (UTI) e 41% enfermaria"Esta edição do mapa de risco consolida ainda mais a queda dos indicadores da covid-19, mostrando que a Ômicron já atingiu o pico e agora está em queda sustentável na maior parte das regiões do estado. Nas regiões Norte e Noroeste, ainda estamos com o alerta ligado", ressaltou o secretário estadual de Saúde, Alexandre Chieppe')  
+listas_de_paginas_estado =[
+    Estado(0,'Acre','/static/img/bandeiras/Acre.png'),
+    Estado(1,'Alagoas','/static/img/bandeiras/Alagoas.png'),
+    Estado(2,'Amapá','/static/img/bandeiras/Amapa.png'),
+    Estado(3,'Amazonas','/static/img/bandeiras/Amazonas.png'),
+    Estado(4,'Bahia','/static/img/bandeiras/Bahia.png'),
+    Estado(5,'Ceará','/static/img/bandeiras/Ceara.png'),
+    Estado(6,'Distrito Federal','/static/img/bandeiras/distrito_federal.png'),
+    Estado(7,'Espírito Santo','/static/img/bandeiras/espirito_santo.png'),
+    Estado(8,'Goiás','/static/img/bandeiras/goias.png'),
+    Estado(9,'Maranhão','/static/img/bandeiras/maranhao.png'),
+    Estado(10,'Mato Grosso','/static/img/bandeiras/mato_grosso.png'),
+    Estado(11,'Mato Grosso do Sul','/static/img/bandeiras/mato_grosso_do_sul.png'),
+    Estado(12,'Minas Gerais','/static/img/bandeiras/minas_gerais.png'),
+    Estado(13,'Pará','/static/img/bandeiras/para.png'),
+    Estado(14,'Paraíba','/static/img/bandeiras/paraiba.png'),
+    Estado(15,'Paraná','/static/img/bandeiras/parana.png'),
+    Estado(16,'Pernambuco','/static/img/bandeiras/pernambuco.png'),
+    Estado(17,'Piauí','/static/img/bandeiras/piaui.png'),
+    Estado(18,'Rio de Janeiro','/static/img/bandeiras/rio_de_janeiro.png'),
+    Estado(19,'Rio Grande do Norte','/static/img/bandeiras/rio_grande_do_norte.png'),
+    Estado(20,'Rio Grande do Sul','/static/img/bandeiras/rio_grande_do_sul.png'),
+    Estado(21,'Rondônia','/static/img/bandeiras/rondonia.png'),
+    Estado(22,'Roraima','/static/img/bandeiras/roraima.png'),
+    Estado(23,'Santa Catarina','/static/img/bandeiras/santa_catarina.png'),
+    Estado(24,'São Paulo','/static/img/bandeiras/sao_paulo.png'),
+    Estado(25,'Sergipe','/static/img/bandeiras/sergipe.png'),
+    Estado(26,'Tocantins','/static/img/bandeiras/tocantins.png')
 ]
 @app.route('/')
 def home():
-    return render_template('index.html', paginas = listas_de_paginas_principais, paginas_2=listas_de_paginas_recentes, paginas_3 = listas_de_paginas_carrousel)
+    return render_template('index.html', paginas = listas_de_paginas_principais, paginas_2=listas_de_paginas_recentes, paginas_3 = listas_de_paginas_estado)
+
 
 @app.route('/news-1/<id>')
 def Principais(id):
@@ -33,10 +59,9 @@ def Principais(id):
 def Recentes(id):
     return render_template('Recentes.html',recentes=listas_de_paginas_recentes[int(id)])
 
-@app.route('/news-3/<id>')
-def Carrousel(id):
-    return render_template('Carrousel.html',carrousel=listas_de_paginas_carrousel[int(id)])
-
+@app.route('/estado/<int:id>')
+def estado(id):
+    return render_template('index.html',estado=listas_de_paginas_estado[int(id)])
 
 if __name__ == '__main__':
     app.run(debug=True)
