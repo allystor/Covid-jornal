@@ -59,9 +59,9 @@ def Principais(id):
 def Recentes(id):
     return render_template('Recentes.html',recentes=listas_de_paginas_recentes[int(id)])
 
-@app.route('/estado/<int:id>')
-def estado(id):
-    return render_template('index.html',estado=listas_de_paginas_estado[int(id)])
+@app.route('/estado/<id>')
+def Estados(id):
+    return render_template('Noticia_estado.html',estado=listas_de_paginas_estado[int(id)])
 
 if __name__ == '__main__':
     app.run(debug=True)
