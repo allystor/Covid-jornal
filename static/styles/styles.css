@@ -13,9 +13,6 @@ header {
     margin-bottom: 10px;
 }
 /*carousel*/
-.carousel-img {
-    height: 350px;
-}
 .carousel-ancor {
     text-decoration: none;
     color: inherit;
@@ -92,4 +89,12 @@ header {
 /*scrollbar*/
 *::-webkit-scrollbar{
     width: 15px;
+}
+@media screen and (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
+    #carouselExampleIndicators{
+        overflow-x: hidden;
+    }
 }

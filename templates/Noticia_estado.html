@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="PT-BR">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +13,6 @@
   <!--Css-->
   <link rel="stylesheet" href="../static/styles/styles.css">
 </head>
-
 <body>
   <!--Cabeçalho-->
   <header class="fixed-top">
@@ -29,9 +27,7 @@
           </strong>
         </a>
         <nav class="nav">
-          <a class="nav-link active text-white fs-5" href="#Principais">Principais</a>
-          <a class="nav-link text-white fs-5" href="#Recentes">Recentes</a>
-          <a class="nav-link text-white fs-5" href="#Reportagens">Reportagens</a>
+          <a class="nav-link active text-white fs-5" href="/templates/index.html">Home</a>
         </nav>
       </div>
     </div>
@@ -47,7 +43,7 @@
       <div class="offcanvas-body">
         {% for estado in paginas_3 %}
         <div class="dropdown mt-3">
-          <a href="url_for('estado',id=estado.get_id())"> 
+          <a href="url_for('Estados',id=estado.get_id())"> 
             <img style="width: 25px" src="{{estado.get_bandeira()}}">
             <button class="btn btn-primary" type="button" id="dropdownMenuButton"
               data-bs-toggle="dropdown">
@@ -61,20 +57,6 @@
   </header>
   <main style="margin-top: 195px">
     <!--Cards-->
-    <div id="Principais" class="d-grid text-center mx-auto my-5">
-      <h2 class="titulo my-5 ms-5">Principais</h2>
-      <div class="d-flex m-auto">
-        {% for principais in paginas %}
-        <div class="card me-5" style="width: 18rem;">
-          <img class="card-img-top" src="{{principais.get_imagem()}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{principais.get_titulo()}}</h5>
-            <a href="{{url_for('Principais',id=principais.get_id())}}" class="btn btn-primary">Veja</a>
-          </div>
-        </div>
-        {%endfor%}
-      </div>
-    </div>
     <div id="Recentes" class="d-grid text-center mx-auto">
       <h2 class="titulo my-5">Recentes</h2>
       <div class="d-flex m-auto">
@@ -87,29 +69,6 @@
           </div>
         </div>
         {%endfor%}
-      </div>
-    </div>
-    <div id="Reportagens" class="d-grid text-center mx-auto">
-      <h2 class="my-5">Reportagens</h2>
-      <div class="d-flex m-auto">
-        <div class="embed-responsive embed-responsive-21by9 me-5">
-          <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/-VVW81VCAPI"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <div class="embed-responsive embed-responsive-21by9 1">
-          <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/NX0C9I51_Q4"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <div class="embed-responsive embed-responsive-21by9 ms-5">
-          <iframe class="border rounded .hover-zoom" width="360" height="180"
-            src="https://www.youtube.com/embed/-ULBdTGDzAY" title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
       </div>
     </div>
   </main>
@@ -137,5 +96,4 @@
   <script src="javascript/main.js"></script>
   <script src="../static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
