@@ -28,15 +28,38 @@
                 </nav>
             </div>
         </div>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample">
+      Estados
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header" style="background:rgb(14,125,221);">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Estados</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        {% for estado in paginas_3 %}
+        <div class="dropdown mt-3">
+          <a href="url_for('Estados',id=estado.get_id())"> 
+            <img style="width: 25px" src="{{estado.get_bandeira()}}">
+            <button class="btn btn-primary" type="button" id="dropdownMenuButton"
+              data-bs-toggle="dropdown">
+              {{estado.get_titulo()}}
+            </button>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     </header>
     <!--Corpo principal-->
     <main>
         <div class="main-container w-50 m-auto my-5">
             <div class="conteúdo d-flex flex-column">
-                <h1>{{carrousel.get_titulo()}}</h1>
+                <h1>{{noticia.get_titulo()}}</h1>
                 <div>
-                    <img class=" w-100" src="{{carrousel.get_imagem()}}" alt="" srcset="">
-                    <p class="font-weight-bold fs-4">{{carrousel.get_conteudo()}}</p>
+                    <img class=" w-100" src="{{noticia.get_imagem()}}">
+                    <p class="font-weight-bold fs-4">{{noticia.get_conteudo()}}</p>
                     <p class="font-weight-bold fs-4 my-5"> Compartilhar
                         <a href="#"><img src="/static/img/share.svg" height="30" width="30" class="m-left"></a>
                     </p>

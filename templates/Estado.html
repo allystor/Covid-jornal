@@ -43,12 +43,9 @@
       <div class="offcanvas-body">
         {% for estado in paginas_3 %}
         <div class="dropdown mt-3">
+          <img style="width: 25px" src="{{estado.get_bandeira()}}">
           <a href="url_for('Estados',id=estado.get_id())"> 
-            <img style="width: 25px" src="{{estado.get_bandeira()}}">
-            <button class="btn btn-primary" type="button" id="dropdownMenuButton"
-              data-bs-toggle="dropdown">
-              {{estado.get_titulo()}}
-            </button>
+            {{estado.get_titulo()}}
           </a>
         </div>
         {% endfor %}
@@ -60,15 +57,13 @@
     <div id="Recentes" class="d-grid text-center mx-auto">
       <h2 class="titulo my-5">Recentes</h2>
       <div class="d-flex m-auto">
-        {%for recentes in paginas_2 %}
         <div class="card me-5" style="width: 18rem;">
-          <img class="card-img-top" src="{{recentes.get_imagem()}}" alt="Card image cap">
+          <img class="card-img-top" src="{{noticia.get_imagem()}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{recentes.get_titulo()}}</h5>
-            <a href="{{url_for('Recentes',id=recentes.get_id())}}" class="btn btn-primary">Veja</a>
+            <h5 class="card-title">{{noticia.get_titulo()}}</h5>
+            <a href="{{url_for('noticia',id=noticia.get_id())}}" class="btn btn-primary">Veja</a>
           </div>
         </div>
-        {%endfor%}
       </div>
     </div>
   </main>

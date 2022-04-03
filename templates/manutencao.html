@@ -27,6 +27,29 @@
                 </nav>
             </div>
         </div>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample">
+      Estados
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header" style="background:rgb(14,125,221);">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Estados</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        {% for estado in paginas_3 %}
+        <div class="dropdown mt-3">
+          <a href="url_for('Estados',id=estado.get_id())"> 
+            <img style="width: 25px" src="{{estado.get_bandeira()}}">
+            <button class="btn btn-primary" type="button" id="dropdownMenuButton"
+              data-bs-toggle="dropdown">
+              {{estado.get_titulo()}}
+            </button>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     </header>
     <!--Corpo principal-->
     <main>
