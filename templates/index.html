@@ -46,7 +46,7 @@
       </div>
       <div class="offcanvas-body">
         {% for estado in paginas_3 %}
-        <div class="dropdown mt-3">
+        <div class=" mt-3">
           <img style="width: 25px" src="{{estado.get_bandeira()}}">
           <a href="{{url_for('Estados',id=estado.get_id())}}" style="text-decoration: none;">   
             {{estado.get_titulo()}}

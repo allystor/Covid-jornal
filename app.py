@@ -49,8 +49,11 @@ listas_de_paginas_estado =[
     Estado(26,'Tocantins','/static/img/bandeiras/Tocantins.png')
 ]
 lista_de_noticia = [
-    Noticia(6,'Rio Branco e outras cidades do Baixo, Alto Acre e Purus avançam para bandeira verde em avaliação do Comitê Covid','https://s2.glbimg.com/Nb5ECEQh2dJEujNB0A8rpjPZMLg=/0x0:540x405/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/u/6/km22dOTRqekbmjdKBptA/capturar.jpg','As regionais do Baixo Acre, Alto Acre e Purus avançaram para a bandeira verde, que representa cuidado, na avaliação do Comitê de Acompanhamento Especial da Covid-19. Já as regionais Juruá e Tarauacá/Envira permaneceram em bandeira amarela, que é de atenção. Os dados foram divulgados nesta sexta-feira (1º) pelo governo do Acre e representa o período de avaliação do dia 13 a 26 de março. Na última avaliação, divulgada no dia 7 de março, o governador Gladson Cameli manteve todas as cidades do Acre em nível de atenção (bandeira amarela) na classificação de risco da pandemia até o dia 31 de março, após aumento de casos no mês de fevereiro.')
+    Noticia(6,'Rio Branco e outras cidades do Baixo, Alto Acre e Purus avançam para bandeira verde em avaliação do Comitê Covid','https://s2.glbimg.com/Nb5ECEQh2dJEujNB0A8rpjPZMLg=/0x0:540x405/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/u/6/km22dOTRqekbmjdKBptA/capturar.jpg','As regionais do Baixo Acre, Alto Acre e Purus avançaram para a bandeira verde, que representa cuidado, na avaliação do Comitê de Acompanhamento Especial da Covid-19. Já as regionais Juruá e Tarauacá/Envira permaneceram em bandeira amarela, que é de atenção. Os dados foram divulgados nesta sexta-feira (1º) pelo governo do Acre e representa o período de avaliação do dia 13 a 26 de março. Na última avaliação, divulgada no dia 7 de março, o governador Gladson Cameli manteve todas as cidades do Acre em nível de atenção (bandeira amarela) na classificação de risco da pandemia até o dia 31 de março, após aumento de casos no mês de fevereiro.'),
+    Noticia(7,'Boletim: Alagoas registra mais 3 mortes e 11 novos casos de Covid-19','https://tnh1-cdn2.cworks.cloud/fileadmin/_processed_/e/7/csm_csm_Coronavirus_-_Foto_Pixabay_3fb0570561_efa426ceae.jpg','O Boletim Epidemiológico da Secretaria de Estado da Saúde (Sesau), desta segunda-feira (4), apresenta 11 casos de Covid-19 em Alagoas. Dessa forma, o Estado tem um total de 296.263 casos confirmados do novo coronavírus até o momento, dos quais 145 estão em isolamento domiciliar. Outros 288.977 pacientes já finalizaram o período de isolamento, não apresentam mais sintomas e, portanto, estão recuperados da doença. Há 1.268 casos em investigação epidemiológica. Foram registrados três óbitos em território alagoano. Com isso, Alagoas tem 6.891 óbitos por Covid-19. Os casos confirmados de pessoas com a Covid-19 estão distribuídos nos 102 municípios alagoanos. Em relação ao quadro total de óbitos em Alagoas, estão confirmados 6.891 óbitos por Covid-19, mas, oito deles, eram de pessoas residentes em Pernambuco, São Paulo, Santa Catarina e Bahia, tendo como vítimas seis homens e duas mulheres. Dos 6.883 óbitos de pessoas residentes em Alagoas, 3.790 eram do sexo masculino e 3.093 do sexo feminino. Eram 3.061 pessoas que residiam em Maceió e as outras 3.822 moravam no interior do Estado, segundo o Centro de Informações Estratégicas de Vigilância em Saúde (Cievs), da Sesau.'),
+    Noticia(8,'Covid-19: Amapá registra 2 novos casos e tem 5 internados; óbitos seguem em 2.126','https://s2.glbimg.com/TOdnQhCHM_UKd0fyx2GVrexAIV4=/0x0:800x450/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/Q/A/6iSOjXRDABni09iblyhQ/51835306572-82d8e28583-c.jpg','O Amapá não contabilizou mortes e registrou 2 novos casos conhecidos de Covid-19 nas últimas 24 horas. Os dados constam no boletim epidemiológico do governo desta segunda-feira (4). Com isso, o estado chega a 160.349 casos confirmados e 2.126 óbitos. Os recuperados somam 129.915 pessoas (81,02%). Especialistas acreditam que há muitos que não fazem o exame, que isto continua bastante necessário. Esses fatores podem ocultar muitos casos firmados de Covid-19 que deixam de entrar nas estatísticas oficiais.'),
 ]
+lista_total_noticia = [listas_de_paginas_principais,listas_de_paginas_recentes,listas_de_paginas_estado,lista_de_noticia]
 @app.route('/')
 def home():
     return render_template('index.html',paginas=listas_de_paginas_principais,paginas_2=listas_de_paginas_recentes,paginas_3=listas_de_paginas_estado, pagina_4=lista_de_noticia)
@@ -61,18 +64,30 @@ def manutencao():
 
 @app.route('/news-1/<id>')
 def Principais(id):
-    return render_template('Principais.html',principais=listas_de_paginas_principais[int(id)])
+    for pagina in listas_de_paginas_principais:
+        if pagina.get_id() == int(id):
+            return render_template('principais.html',principais=pagina)
+    return render_template('index.html',principais=listas_de_paginas_principais[int(id)])
     
 @app.route('/news-2/<id>')
 def Recentes(id):
-    return render_template('Recentes.html',recentes=listas_de_paginas_recentes[int(id)])
+    for pagina in listas_de_paginas_recentes:
+        if pagina.get_id() == int(id):
+            return render_template('Recentes.html',recentes=pagina)
+    return render_template('index.html',recentes=listas_de_paginas_recentes[int(id)])
 
 @app.route('/estado/<id>')
 def Estados(id):
-    return render_template('Estado.html',noticia=lista_de_noticia[int(id)], paginas_3=listas_de_paginas_estado)
+    for pagina in lista_de_noticia:
+        if pagina.get_id() == int(id):
+            return render_template('Estado.html',estado=pagina)
+    return render_template('Estado.html',noticia=lista_de_noticia[int(id)])
 
 @app.route('/noticia/<id>')
 def noticia(id):
+    for pagina in lista_de_noticia:
+        if pagina.get_id() == int(id):
+            return render_template('Noticia.html',noticia=pagina)
     return render_template('Noticia.html',noticia=listas_de_paginas_principais[int(id)])
 
 if __name__ == '__main__':
