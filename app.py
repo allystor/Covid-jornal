@@ -84,35 +84,35 @@ def home():
 
 @app.route('/manutencao/')
 def manutencao():
-    return render_template('manutencao.html')
+    return render_template('Manutencao.html',paginas_3=listas_de_paginas_estado)
 
 @app.route('/news-1/<id>')
 def Principais(id):
     for pagina in listas_de_paginas_principais:
         if pagina.get_id() == int(id):
-            return render_template('principais.html',principais=pagina)
-    return render_template('index.html',principais=listas_de_paginas_principais[int(id)])
+            return render_template('principais.html',principais=pagina,paginas_3=listas_de_paginas_estado)
+    return render_template('index.html',principais=listas_de_paginas_principais[int(id)],paginas_3=listas_de_paginas_estado)
     
 @app.route('/news-2/<id>')
 def Recentes(id):
     for pagina in listas_de_paginas_recentes:
         if pagina.get_id() == int(id):
-            return render_template('Recentes.html',recentes=pagina)
-    return render_template('index.html',recentes=listas_de_paginas_recentes[int(id)])
+            return render_template('Recentes.html',recentes=pagina,paginas_3=listas_de_paginas_estado)
+    return render_template('index.html',recentes=listas_de_paginas_recentes[int(id)],paginas_3=listas_de_paginas_estado)
 
 @app.route('/estado/<id>')
 def Estados(id):
     for pagina in lista_de_noticia:
-        if pagina.get_id() == int(id):
-            return render_template('Estado.html',estado=pagina)
-    return render_template('Estado.html',noticia=lista_de_noticia[int(id)])
+        if pagina.get_id() == id:
+            return render_template('Estado.html',noticia=pagina,paginas_3=listas_de_paginas_estado)
+    return render_template('Estado.html',noticia=lista_de_noticia[int(id)],paginas_3=listas_de_paginas_estado)
 
 @app.route('/noticia/<id>')
-def noticia(id):
+def Noticia(id):
     for pagina in lista_de_noticia:
         if pagina.get_id() == int(id):
-            return render_template('Noticia.html',noticia=pagina)
-    return render_template('Noticia.html',noticia=listas_de_paginas_principais[int(id)])
+            return render_template('Noticia.html',noticia=pagina,paginas_3=listas_de_paginas_estado)
+    return render_template('Noticia.html',noticia=listas_de_paginas_principais[int(id)],paginas_3=listas_de_paginas_estado)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -44,7 +44,7 @@
         {% for estado in paginas_3 %}
         <div class="dropdown mt-3">
           <img style="width: 25px" src="{{estado.get_bandeira()}}">
-          <a href="url_for('Estados',id=estado.get_id())"> 
+          <a href="{{url_for('Estados',id=estado.get_id())}}" class="btn btn-primary"> 
             {{estado.get_titulo()}}
           </a>
         </div>
@@ -61,7 +61,7 @@
           <img class="card-img-top" src="{{noticia.get_imagem()}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{noticia.get_titulo()}}</h5>
-            <a href="{{url_for('noticia',id=noticia.get_id())}}" class="btn btn-primary">Veja</a>
+            <a href="{{url_for('Noticia',id=noticia.get_id())}}" class="btn btn-primary">Veja</a>
           </div>
         </div>
       </div>
