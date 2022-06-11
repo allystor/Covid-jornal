@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/static/img/icone.svg">
+  <title>Portal Covid</title>
+  <!--Fontawesome-->
+  <script src="https://kit.fontawesome.com/a5ad30f95d.js" crossorigin="anonymous"></script>
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--Css-->
+  <link rel="stylesheet" href="../static/styles/styles.css">
+</head>
+<body>
+  <!--Cabeçalho-->
+  <header class="fixed-top">
+    <div id="navbar" class="navbar navbar-dark bg-rgb(14, 125, 221) shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <img src="/static/img/virus.svg" width="50" height="50" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+            viewBox="0 0 24 24"></img>
+          <strong>
+            <h1>Portal Covid</h1>
+          </strong>
+        </a>
+        <nav class="nav">
+          <a class="nav-link active text-white fs-5" href="#Principais">Principais</a>
+          <a class="nav-link text-white fs-5" href="#Recentes">Recentes</a>
+          <a class="nav-link text-white fs-5" href="#Reportagens">Reportagens</a>
+        </nav>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample">
+      Estados
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header" style="background:rgb(14,125,221);">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Estados</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        {% for bandeira in bandeiras_list %}
+        <div class="dropdown mt-3">
+          <img style="width: 25px" src="{{bandeira.get_bandeira()}}">
+          <a href="/Estado/{{bandeira.get_id()}}" class="btn btn-primary"> 
+            {{bandeira.get_titulo()}}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </header>
+  <main style="margin-top: 195px">
+    <!--Carousel-->
+    <div id="carouselExampleIndicators" class="carousel slide w-50 m-auto my-5" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner d-block w-100">
+        <div class="carousel-item active">
+          <img class=" d-block w-100" src="../static/img/covid-news-7.png" alt="Third slide">
+          <div class="carousel-caption d-none d-md-block">
+            <a href="/manutencao/" class="carousel-ancor">
+              <h5>Zé Gotinha responde às dúvidas da população sobre a vacinação de crianças contra a Covid-19</h5>
+            </a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class=" d-block w-100" src="../static/img/covid-news-8.jpg" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block td-none">
+            <a href="/manutencao/" class="carousel-ancor">
+              <h5>Queiroga pede para que pais levem seus filhos para vacinar contra covid-19</h5>
+            </a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="../static/img/covid-news-9.webp" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+            <a href="/manutencao/" class="carousel-ancor">
+              <h5>Estado do Rio volta à bandeira amarela de risco para covid-19 Rio volta à bandeira amarela de risco
+                para covid-19</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      </a>
+    </div>
+    <!--Cards-->
+    <div id="Principais" class="d-grid text-center mx-auto">
+      <h2 class="titulo my-5">Principais</h2>
+      <div class="d-flex m-auto">
+        {% for principais in principais_list %}
+        <div class="card me-5" style="width: 18rem;">
+          <img class="card-img-top" src="{{principais.get_imagem()}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{principais.get_titulo()}}</h5>
+            <a href="url_for('Principais',id=principais.get_id())" class="btn btn-primary">Veja</a>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+    <div id="Recentes" class="d-grid text-center mx-auto">
+      <h2 class="titulo my-5">Recentes</h2>
+      <div class="d-flex m-auto">
+        {%for recentes in recentes_list %}
+        <div class="card me-5" style="width: 18rem;">
+          <img class="card-img-top" src="{{recentes.get_imagem()}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{recentes.get_titulo()}}</h5>
+            <a href="url_for('Recentes',id=recentes.get_id())" class="btn btn-primary">Veja</a>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+    <div id="Reportagens" class="d-grid text-center mx-auto">
+      <h2 class="my-5">Reportagens</h2>
+      <div class="d-flex m-auto">
+        <div class="embed-responsive embed-responsive-21by9 me-5">
+          <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/-VVW81VCAPI"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="embed-responsive embed-responsive-21by9 1">
+          <iframe class=" border rounded" width="360" height="180" src="https://www.youtube.com/embed/NX0C9I51_Q4"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="embed-responsive embed-responsive-21by9 ms-5">
+          <iframe class="border rounded .hover-zoom" width="360" height="180"
+            src="https://www.youtube.com/embed/-ULBdTGDzAY" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!--Rodapé-->
+  <footer id="myFooter" class="footer my-5">
+    <div class="footer-social">
+      <a href="" class="social-icons"><i class="fa fa-facebook"></i></a>
+      <a href="" class="social-icons"><i class="fa fa-instagram"></i></a>
+      <a href="" class="social-icons"><i class="fa fa-twitter"></i></a>
+    </div>
+    <div class="m-auto text-center">
+      <div class="">
+        <i class="fas fa-phone"></i>
+        <p>Ligue para: (99)99999-9999</p>
+      </div>
+      <p>Horários: das 8:00 às 19:00</p>
+      <div class="">
+        <i class="fas fa-envelope"></i>
+        <p>Envie um email para: contato@jornalcovid.com.br</p>
+      </div>
+      <p class="footer-copyright">© 2022 Copyright - Jornal Covid</p>
+    </div>
+  </footer>
+  <!--scripts do projeto-->
+  <script src="javascript/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
