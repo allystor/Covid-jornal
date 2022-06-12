@@ -10,3 +10,4 @@ if __name__ == "__main__":
 
 from application.controller import home_controller
 from application.controller import estado_controller
+from application.controller import manutencao_controller

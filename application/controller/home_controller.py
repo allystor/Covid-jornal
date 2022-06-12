@@ -13,14 +13,21 @@ def index():
     principais_list = PrinciaisDao().find_all()
     recentes_list = RecentesDao().find_all()
     bandeiras_list = BandeiraDao().find_all()
+    return render_template('index.html', principais_list = principais_list, recentes_list = recentes_list, bandeiras_list = bandeiras_list)
+
+@app.route('/Principais/<int:id>')
+def Principais(id : int):
+    principais_list = PrinciaisDao().find_all()
+    for principal in principais_list:
+        if principal.get_id() == id:
+            return render_template('Principais.html', principais=principal)
     
-    principais = PrinciaisDao().find_by_id(id)
-    recentes = RecentesDao().find_by_id(id)
-    bandeiras = BandeiraDao().find_by_id(id)
-    
-    index_list = [principais, recentes, bandeiras]
-    
-    return render_template('index.html', index_list = index_list, principais_list = principais_list, recentes_list = recentes_list, bandeiras_list = bandeiras_list)
+@app.route('/Recentes/<int:id>')
+def Recentes(id : int):
+    recentes_list = RecentesDao().find_all()
+    for recente in recentes_list:
+        if recente.get_id() == id:
+            return render_template('Recentes.html', recentes=recente)
 
 if __name__ == '__main__':
     app.run(debug=True)

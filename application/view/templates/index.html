@@ -47,7 +47,7 @@
         {% for bandeira in bandeiras_list %}
         <div class="dropdown mt-3">
           <img style="width: 25px" src="{{bandeira.get_bandeira()}}">
-          <a href="/Estado/{{bandeira.get_id()}}" class="btn btn-primary"> 
+          <a href="{{url_for('Estado', id=bandeira.get_id())}}" class="btn btn-primary"> 
             {{bandeira.get_titulo()}}
           </a>
         </div>
@@ -114,7 +114,7 @@
           <img class="card-img-top" src="{{principais.get_imagem()}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{principais.get_titulo()}}</h5>
-            <a href="url_for('Principais',id=principais.get_id())" class="btn btn-primary">Veja</a>
+            <a href="{{url_for('Principais',id=principais.get_id())}}" class="btn btn-primary">Veja</a>
           </div>
         </div>
         {%endfor%}
@@ -128,7 +128,7 @@
           <img class="card-img-top" src="{{recentes.get_imagem()}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{recentes.get_titulo()}}</h5>
-            <a href="url_for('Recentes',id=recentes.get_id())" class="btn btn-primary">Veja</a>
+            <a href="{{url_for('Recentes',id=recentes.get_id())}}" class="btn btn-primary">Veja</a>
           </div>
         </div>
         {%endfor%}
