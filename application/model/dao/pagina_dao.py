@@ -9,12 +9,6 @@ class PrinciaisDao:
         
     def find_all(self):
         return self.__db
-    
-    def find_by_id(self,id):
-        for pagina in self.__db:
-            if pagina.get_id() == id:
-                return pagina
-        return None
 
 class RecentesDao:
     def __init__(self):
@@ -25,9 +19,3 @@ class RecentesDao:
     
     def find_all(self):
         return self.__db
-
-    def find_by_id(self,id):
-        for pagina in self.__db:
-            if pagina.get_id() == id:
-                return pagina
-        return None

@@ -47,9 +47,7 @@
         {% for bandeira in bandeiras_list %}
         <div class="dropdown mt-3">
           <img style="width: 25px" src="{{bandeira.get_bandeira()}}">
-          <a href="{{url_for('Estado', id=bandeira.get_id())}}" class="btn btn-primary"> 
-            {{bandeira.get_titulo()}}
-          </a>
+          <a href="{{url_for('Estado', id=bandeira.get_id())}}" class="btn btn-primary">{{bandeira.get_titulo()}}</a>
         </div>
         {% endfor %}
       </div>

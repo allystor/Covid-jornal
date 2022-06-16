@@ -37,12 +37,10 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        {% for estado in paginas_3 %}
+        {% for bandeira in bandeiras_list %}
         <div class="dropdown mt-3">
-          <a href="url_for('Estados',id=estado.get_id())" class="btn"> 
-            <img style="width: 25px" src="{{estado.get_bandeira()}}">
-            {{estado.get_titulo()}}
-          </a>
+          <img style="width: 25px" src="{{bandeira.get_bandeira()}}">
+          <a href="{{url_for('Estado', id=bandeira.get_id())}}" class="btn btn-primary">{{bandeira.get_titulo()}}</a>
         </div>
         {% endfor %}
       </div>

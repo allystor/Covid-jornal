@@ -40,13 +40,10 @@
         <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">Estados</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
-        {% for bandeira in bandeiras_list %}
+      {% for bandeira in bandeiras_list %}
         <div class="dropdown mt-3">
           <img style="width: 25px" src="{{bandeira.get_bandeira()}}">
-          <a href="/Estado/{{bandeira.get_id()}}" class="btn btn-primary"> 
-            {{bandeira.get_titulo()}}
-          </a>
+          <a href="{{url_for('Estado', id=bandeira.get_id())}}"class="btn btn-primary">{{bandeira.get_titulo()}}</a>
         </div>
         {% endfor %}
       </div>
@@ -55,14 +52,16 @@
   <main style="margin-top: 195px">
     <!--Cards-->
     <div id="Recentes" class="d-grid text-center mx-auto">
-      <h2 class="titulo my-5">Recentes</h2>
+      <h2 class="titulo my-5">As mais atuais</h2>
       <div class="d-flex m-auto">
         <div class="card me-5" style="width: 18rem;">
+          {% for noticia in noticias_estado %}
           <img class="card-img-top" src="{{noticia.get_imagem()}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{noticia.get_titulo()}}</h5>
-            <a href="{{url_for('noticia',id=noticia.get_id())}}" class="btn btn-primary">Veja</a>
+            <a href="{{url_for('Noticia', id=noticia.get_id())}}" class="btn btn-primary">Veja</a>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

@@ -33,9 +33,4 @@ class BandeiraDao:
         
     def find_all(self):
         return self.__db
-    
-    def find_by_id(self, id):
-        for bandeira in self.__db:
-            if bandeira.get_id() == id:
-                return bandeira
-        return None
+
