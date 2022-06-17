@@ -1,4 +1,5 @@
-from flask import redirect, render_template, request, url_for
+import email
+from flask import redirect, render_template, request
 from application import app
 from application.model.dao.noticia_dao import NoticiaDao
 from application.model.dao.bandeiras_dao import BandeiraDao
@@ -10,17 +11,18 @@ from application.model.entity.comentario_entity import Comentario
 def Noticia(id : int):
     bandeiras_list = BandeiraDao().find_all()
     noticias_list = NoticiaDao().find_all()
-    lista = ComentarioDAO.Lista()
-    ordenar = sorted(lista, key=lambda x: x.__data(), reverse=True)
+    lista = ComentarioDAO.lista()
+    ordenar = sorted(lista, key=lambda x : x.get_data(), reverse=True)
     for noticias in noticias_list:
         if noticias.get_id() == id:
-            return render_template('Noticia.html', noticias=noticias, bandeiras_list=bandeiras_list, lista=ordenar)
+            return render_template('Noticia.html', noticias=noticias, bandeiras_list=bandeiras_list, comentario=ordenar)
 
-@app.route('/Comentar/', methods=['GET', 'POST'])
-def comentarios():
-    usuario = request.form.get('nome', 'none')
-    conteudo = request.form.get('conteudo', 'none')
-    comentario = Comentario(usuario, conteudo)
+@app.route('/Comentar/<int:id>', methods=['POST'])
+def comentarios(id : int):
+    usuario = request.form.get('nome')
+    email = request.form.get('email')
+    conteudo = request.form.get('conteudo')
+    comentario = Comentario(usuario, email, conteudo)
     ComentarioDAO.adicionarComentario(comentario)
     if ComentarioDAO:
-        return render_template('Noticia.html', comentario=ComentarioDAO.Lista())
+        return redirect("/Noticia/"+str(id))

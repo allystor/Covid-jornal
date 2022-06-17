@@ -5,5 +5,5 @@ class ComentarioDAO:
     def adicionarComentario(self, comentario):
         self.__lista.append(comentario)
     
-    def Lista(self):
+    def lista(self):
         return self.__lista
