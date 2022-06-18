@@ -13,7 +13,7 @@ def index():
     bandeiras_list = BandeiraDao().find_all()
     lista = ComentarioDAO.lista()
     ordenar = sorted(lista, key=lambda x : x.get_data(), reverse=True)
-    return render_template('index.html', recentes_list = recentes_list, bandeiras_list = bandeiras_list, comentario=ordenar)
+    return render_template('index.html', recentes_list = recentes_list, bandeiras_list = bandeiras_list, comentario=ordenar, principais_list = principais_list)
 
 @app.route('/Principais/<int:id>',  methods=['GET'])
 def Principais(id : int):
