@@ -1,5 +1,4 @@
-import email
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, url_for
 from application import app
 from application.model.dao.noticia_dao import NoticiaDao
 from application.model.dao.bandeiras_dao import BandeiraDao
@@ -17,11 +16,11 @@ def Noticia(id : int):
         if noticias.get_id() == id:
             return render_template('Noticia.html', noticias=noticias, bandeiras_list=bandeiras_list, comentario=ordenar)
 
-@app.route('/Comentar/<int:id>', methods=['POST'])
+@app.route('/Comentar/<int:id>', methods=['GET','POST'])
 def comentarios(id : int):
-    usuario = request.form.get('nome')
-    email = request.form.get('email')
-    conteudo = request.form.get('conteudo')
+    usuario = request.form.get('nome', 'none')
+    email = request.form.get('email', 'none')
+    conteudo = request.form.get('conteudo', 'none')
     comentario = Comentario(usuario, email, conteudo)
     ComentarioDAO.adicionarComentario(comentario)
     if ComentarioDAO:
